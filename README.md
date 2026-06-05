@@ -26,11 +26,11 @@
 
 ![ATS 单栏版](docs/images/resume-ats-clean.png)
 
-### 中文侧栏版
+### 中文信息栏版
 
 适合人工阅读、微信转发、BOSS/猎聘附件，以及希望有一点视觉层次但仍保持稳重的场景。
 
-![中文侧栏版](docs/images/resume-cn-sidebar.png)
+![中文信息栏版](docs/images/resume-cn-sidebar.png)
 
 ### zc 视觉侧栏版
 
