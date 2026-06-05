@@ -10,6 +10,7 @@ out/
 tmp/
 *.pdf
 docs/demo/*.qa.md
+docs/gallery/
 
 # Keep README screenshots, but ignore ad-hoc local captures elsewhere
 screenshots/
