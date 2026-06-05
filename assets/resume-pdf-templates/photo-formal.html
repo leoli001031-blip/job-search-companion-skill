@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>{{name}} - {{target_role}} - 照片正式版简历</title>
+  <style>
+    @page { size: A4; margin: 14mm 15mm; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: #1f2937;
+      font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif;
+      font-size: 10.8pt;
+      line-height: 1.43;
+      background: #fff;
+    }
+    h1, h2, h3, p { margin: 0; }
+    h1 { font-size: 22pt; letter-spacing: 0; }
+    h2 { margin: 10pt 0 5pt; padding-bottom: 3pt; border-bottom: 1px solid #d1d5db; font-size: 12pt; }
+    h3 { margin-top: 7pt; font-size: 10.8pt; }
+    ul { margin: 4pt 0 0 16pt; padding: 0; }
+    li { margin: 2pt 0; }
+    a { color: inherit; text-decoration: none; }
+    .top { display: grid; grid-template-columns: 1fr 28mm; align-items: start; gap: 10mm; border-bottom: 2px solid #374151; padding-bottom: 8pt; }
+    .photo {
+      width: 26mm;
+      height: 34mm;
+      object-fit: cover;
+      border: 1px solid #d1d5db;
+      background: #f3f4f6;
+    }
+    .target { margin-top: 5pt; font-weight: 700; }
+    .meta { margin-top: 4pt; color: #4b5563; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4pt 12pt; margin-top: 6pt; }
+    .item { break-inside: avoid; margin-top: 6pt; }
+    .item-head { display: flex; justify-content: space-between; gap: 12pt; font-weight: 700; }
+    .time { flex: none; color: #6b7280; font-weight: 400; }
+    @media print { body { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <div>
+      <h1>{{name}}</h1>
+      <p class="target">求职意向：{{target_role}}</p>
+      <div class="grid">
+        <p>手机：{{phone}}</p>
+        <p>邮箱：{{email}}</p>
+        <p>城市：{{city}}</p>
+        <p>到岗：{{availability}}</p>
+      </div>
+      <p class="meta">{{portfolio_url}}</p>
+    </div>
+    <img class="photo" src="{{photo_src}}" alt="证件照">
+  </header>
+
+  <section>
+    <h2>教育背景</h2>
+    <div class="item">
+      <div class="item-head"><span>{{school}} | {{major}} | {{degree}}</span><span class="time">{{education_time}}</span></div>
+      <p>{{education_note}}</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>个人优势</h2>
+    <ul>
+      <li>{{advantage_1}}</li>
+      <li>{{advantage_2}}</li>
+      <li>{{advantage_3}}</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>工作 / 实习经历</h2>
+    <div class="item">
+      <div class="item-head"><span>{{company}} | {{role}}</span><span class="time">{{work_time}}</span></div>
+      <ul>
+        <li>{{work_bullet_1}}</li>
+        <li>{{work_bullet_2}}</li>
+        <li>{{work_bullet_3}}</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>证书 / 校园 / 获奖</h2>
+    <ul>
+      <li>{{certificate_1}}</li>
+      <li>{{campus_or_award_1}}</li>
+    </ul>
+  </section>
+</body>
+</html>

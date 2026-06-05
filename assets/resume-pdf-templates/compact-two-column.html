@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>{{name}} - {{target_role}} - 非对称双栏简历</title>
+  <style>
+    @page { size: A4; margin: 0; }
+    :root {
+      --accent: #2563eb;
+      --accent-dark: #1e3a8a;
+      --accent-soft: #eff6ff;
+      --accent-border: #bfdbfe;
+      --sidebar-bg: #f8fafc;
+      --paper: #ffffff;
+      --background: #ffffff;
+      --text: #111827;
+      --muted: #5f6b7a;
+      --line: #dbe3ea;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+      font-size: 10pt;
+      line-height: 1.44;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    h1, h2, h3, p { margin: 0; }
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      display: grid;
+      grid-template-columns: 64mm 1fr;
+      background: var(--paper);
+    }
+    .left {
+      padding: 14mm 7.5mm 13mm 10mm;
+      background: var(--sidebar-bg);
+      border-right: 1px solid var(--line);
+    }
+    .right { padding: 14mm 14mm 13mm 11mm; }
+    h1 {
+      font-size: 25pt;
+      line-height: 1.05;
+      font-weight: 820;
+      letter-spacing: 0;
+    }
+    .target { margin-top: 5pt; color: var(--accent-dark); font-weight: 760; }
+    .meta { margin-top: 8pt; color: var(--muted); font-size: 8.4pt; line-height: 1.42; overflow-wrap: anywhere; }
+    .section { break-inside: avoid; margin-top: 11pt; }
+    .left .section { margin-top: 12pt; }
+    .section-title {
+      margin-bottom: 5pt;
+      color: var(--accent-dark);
+      font-size: 10.4pt;
+      font-weight: 820;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+    .right .section-title {
+      display: flex;
+      align-items: center;
+      gap: 7pt;
+      color: var(--text);
+      font-size: 12pt;
+    }
+    .right .section-title::before {
+      content: "";
+      width: 4pt;
+      height: 13pt;
+      border-radius: 2pt;
+      background: var(--accent);
+    }
+    .item { break-inside: avoid; margin-top: 7pt; }
+    .item-head { display: grid; grid-template-columns: 1fr auto; gap: 10pt; font-weight: 760; }
+    .time { color: var(--muted); font-size: 8.6pt; font-weight: 500; white-space: nowrap; }
+    .subline { color: var(--muted); font-size: 8.8pt; margin-top: 1.5pt; }
+    .chip {
+      display: inline-block;
+      margin: 0 3pt 4pt 0;
+      padding: 2.6pt 5pt;
+      border: 1px solid var(--accent-border);
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      border-radius: 999pt;
+      font-size: 8.5pt;
+      line-height: 1.2;
+    }
+    ul { list-style: none; margin: 3.5pt 0 0; padding: 0; }
+    li {
+      position: relative;
+      margin: 2pt 0;
+      padding-left: 9pt;
+      color: #202a38;
+      font-size: 9.2pt;
+      line-height: 1.4;
+    }
+    li::before {
+      content: "";
+      position: absolute;
+      left: 1pt;
+      top: .67em;
+      width: 3pt;
+      height: 3pt;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    .left p, .left li { color: #334155; font-size: 8.75pt; }
+    .quote {
+      margin-top: 9pt;
+      padding: 7pt 8pt;
+      border-left: 3pt solid var(--accent);
+      background: var(--accent-soft);
+      color: #263243;
+      font-size: 8.85pt;
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <aside class="left">
+      <h1>{{name}}</h1>
+      <p class="target">{{target_role}}</p>
+      <p class="meta">{{phone}}<br>{{email}}<br>{{city}} | {{availability}}<br>{{portfolio_url}}</p>
+      <p class="quote">{{one_line_positioning}}</p>
+
+      <section class="section">
+        <h2 class="section-title">教育背景</h2>
+        <p><strong>{{school}}</strong></p>
+        <p>{{major}} | {{degree}}</p>
+        <p>{{education_time}}</p>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">技能关键词</h2>
+        <span class="chip">{{skill_1}}</span>
+        <span class="chip">{{skill_2}}</span>
+        <span class="chip">{{skill_3}}</span>
+        <span class="chip">{{skill_4}}</span>
+        <span class="chip">{{skill_5}}</span>
+        <span class="chip">{{skill_6}}</span>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">证书 / 获奖</h2>
+        <ul>
+          <li>{{certificate_1}}</li>
+          <li>{{award_1}}</li>
+        </ul>
+      </section>
+    </aside>
+
+    <section class="right">
+      <section class="section">
+        <h2 class="section-title">个人优势</h2>
+        <ul>
+          <li>{{advantage_1}}</li>
+          <li>{{advantage_2}}</li>
+          <li>{{advantage_3}}</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">工作 / 实习经历</h2>
+        <article class="item">
+          <div class="item-head"><span>{{experience_1_title}}</span><span class="time">{{experience_1_time}}</span></div>
+          <p class="subline">{{experience_1_subline}}</p>
+          <ul>
+            <li>{{experience_1_bullet_1}}</li>
+            <li>{{experience_1_bullet_2}}</li>
+            <li>{{work_bullet_3}}</li>
+          </ul>
+        </article>
+        <article class="item">
+          <div class="item-head"><span>{{experience_2_title}}</span><span class="time">{{experience_2_time}}</span></div>
+          <p class="subline">{{experience_2_subline}}</p>
+          <ul>
+            <li>{{experience_2_bullet_1}}</li>
+            <li>{{experience_2_bullet_2}}</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">项目 / 作品</h2>
+        <article class="item">
+          <div class="item-head"><span>{{project_1_name}}</span><span class="time">{{project_1_time}}</span></div>
+          <p class="subline">{{project_1_summary}}</p>
+          <ul>
+            <li>{{project_1_bullet_1}}</li>
+            <li>{{project_1_bullet_2}}</li>
+          </ul>
+        </article>
+        <article class="item">
+          <div class="item-head"><span>{{project_2_name}}</span><span class="time">{{project_2_time}}</span></div>
+          <p class="subline">{{project_2_summary}}</p>
+          <ul>
+            <li>{{project_2_bullet_1}}</li>
+            <li>{{project_2_bullet_2}}</li>
+          </ul>
+        </article>
+      </section>
+    </section>
+  </main>
+</body>
+</html>

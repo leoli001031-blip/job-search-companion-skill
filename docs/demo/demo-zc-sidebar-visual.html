@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>林雨晴 - 活动社群运营 / 用户运营助理 - zc 视觉侧栏版简历</title>
+  <style>
+    @page { size: A4; margin: 0; }
+    :root {
+      --accent: #7A553C;
+      --accent-dark: #2F2722;
+      --accent-soft: #E8D7C2;
+      --accent-border: #DDD0C0;
+      --sidebar-bg: #F7F1E7;
+      --paper: #FFFCF6;
+      --background: #F7F1E7;
+      --text: #2F2722;
+      --muted: #7C6F63;
+      --line: #DDD0C0;
+      --sage: #8E9A83;
+      --clay: #C97961;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+      -webkit-locale: "zh-CN";
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    h1, h2, h3, p { margin: 0; }
+    a { color: inherit; text-decoration: none; }
+    .page {
+      width: 210mm;
+      height: 297mm;
+      display: grid;
+      grid-template-columns: 57mm 1fr;
+      background: #F2E7D8;
+      overflow: hidden;
+    }
+    .sidebar {
+      position: relative;
+      height: 297mm;
+      padding: 14mm 7mm 10mm 10mm;
+      background: linear-gradient(180deg, var(--accent) 0%, #63442F 100%);
+    }
+    .sidebar::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 2.4mm;
+      background: var(--accent-dark);
+    }
+    .main {
+      position: relative;
+      padding: 14mm 15mm 13mm 12.5mm;
+      background:
+        linear-gradient(180deg, rgba(255, 252, 246, .72), rgba(242, 231, 216, .68)),
+        #F2E7D8;
+    }
+    .main::before {
+      content: "AI APPLICATION";
+      position: absolute;
+      right: 8mm;
+      top: 7mm;
+      color: rgba(122, 85, 60, .16);
+      font-family: "Times New Roman", serif;
+      font-size: 8pt;
+      letter-spacing: .9pt;
+      font-weight: 700;
+    }
+    .name-block {
+      position: relative;
+      padding-bottom: 7.5mm;
+      border-bottom: 1.6pt solid var(--accent);
+    }
+    .name-block::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: -1.8pt;
+      width: 23mm;
+      height: 1.8pt;
+      background: var(--clay);
+    }
+    .micro-kicker {
+      margin-bottom: 2.2mm;
+      color: var(--muted);
+      font-size: 7.3pt;
+      line-height: 1;
+      font-weight: 720;
+      letter-spacing: .7pt;
+      text-transform: uppercase;
+    }
+    .name-row {
+      display: flex;
+      align-items: flex-end;
+      gap: 5mm;
+    }
+    h1 {
+      font-family: "Songti SC", "STSong", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+      font-size: 34pt;
+      line-height: .94;
+      letter-spacing: .6pt;
+      font-weight: 700;
+    }
+    .roman-name {
+      padding-bottom: 1.2mm;
+      color: rgba(122, 85, 60, .68);
+      font-family: "Times New Roman", "Georgia", serif;
+      font-size: 7.4pt;
+      line-height: 1.2;
+      letter-spacing: 1.15pt;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .target {
+      margin-top: 4mm;
+      color: var(--accent);
+      font-size: 10.6pt;
+      line-height: 1.34;
+      font-weight: 720;
+    }
+    .positioning {
+      margin-top: 3.4mm;
+      max-width: 126mm;
+      color: var(--muted);
+      font-size: 9.4pt;
+      line-height: 1.52;
+    }
+    .section {
+      break-inside: avoid;
+      margin-top: 5.1mm;
+    }
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 2.2mm;
+      margin-bottom: 2.4mm;
+      color: var(--text);
+      font-family: "Songti SC", "STSong", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+      font-size: 11.2pt;
+      line-height: 1.2;
+      font-weight: 760;
+    }
+    .section-title::before {
+      content: "";
+      width: 1.8mm;
+      height: 4.2mm;
+      border-radius: 2mm;
+      background: var(--accent);
+    }
+    .num {
+      color: rgba(122, 85, 60, .72);
+      font-family: "Times New Roman", "Georgia", serif;
+      font-size: 8.2pt;
+      line-height: 1;
+      font-weight: 760;
+      letter-spacing: .5pt;
+    }
+    .sidebar .section {
+      margin-top: 4.5mm;
+    }
+    .sidebar .section-title {
+      margin-bottom: 2mm;
+      color: #FFF8ED;
+      font-family: "Songti SC", "STSong", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+      font-size: 9.4pt;
+    }
+    .sidebar .section-title::before {
+      width: 1.8mm;
+      height: 3.6mm;
+      background: #E8D7C2;
+    }
+    .contact-line,
+    .side-text,
+    .edu-line {
+      color: rgba(255, 248, 237, .82);
+      font-size: 8.1pt;
+      line-height: 1.45;
+      overflow-wrap: anywhere;
+    }
+    .side-text strong,
+    .edu-line strong {
+      color: #FFF8ED;
+      font-weight: 760;
+    }
+    .tag-list {
+      display: grid;
+      gap: 1.2mm;
+      margin-top: .5mm;
+    }
+    .tag {
+      padding: 1mm 0;
+      border-bottom: 1px solid rgba(255, 248, 237, .2);
+      color: rgba(255, 248, 237, .88);
+      font-size: 8.2pt;
+      line-height: 1.34;
+    }
+    .mini-note {
+      margin-top: 2mm;
+      color: rgba(255, 248, 237, .68);
+      font-size: 7.9pt;
+      line-height: 1.45;
+    }
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    li {
+      position: relative;
+      margin: 1.25mm 0;
+      padding-left: 3.8mm;
+      color: #382F29;
+      font-size: 8.9pt;
+      line-height: 1.47;
+    }
+    li::before {
+      content: "";
+      position: absolute;
+      left: .7mm;
+      top: .72em;
+      width: 1.2mm;
+      height: 1.2mm;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+    .project {
+      break-inside: avoid;
+      margin-top: 3.2mm;
+      padding-top: 3mm;
+      border-top: 1px solid var(--line);
+    }
+    .project:first-of-type {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: 0;
+    }
+    .project-head,
+    .exp-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 5mm;
+      margin-bottom: 1.6mm;
+    }
+    h3 {
+      color: var(--text);
+      font-size: 9.75pt;
+      line-height: 1.3;
+      font-weight: 780;
+      letter-spacing: .05pt;
+    }
+    .meta {
+      flex: none;
+      color: var(--muted);
+      font-size: 8.15pt;
+      line-height: 1.3;
+    }
+    .subline {
+      margin-bottom: 1.4mm;
+      color: var(--accent);
+      font-size: 8.25pt;
+      line-height: 1.42;
+      font-weight: 650;
+    }
+    .signal {
+      color: #5E6B58;
+      font-family: "Kaiti SC", "STKaiti", "KaiTi", serif;
+      font-weight: 700;
+    }
+    .signal.clay {
+      color: var(--clay);
+    }
+    .exp {
+      break-inside: avoid;
+      margin-top: 2.7mm;
+    }
+    .exp:first-of-type { margin-top: 0; }
+    .exp .subline {
+      color: var(--muted);
+      font-weight: 500;
+    }
+    .compact-list li {
+      margin: .8mm 0;
+      font-size: 8.65pt;
+      line-height: 1.42;
+    }
+    .side-divider {
+      height: 1px;
+      margin: 3.6mm 0 0;
+      background: rgba(255, 248, 237, .2);
+    }
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      margin-bottom: 1.5mm;
+      padding: 1.2mm 2.1mm;
+      border: 1px solid rgba(255, 248, 237, .24);
+      border-radius: 999px;
+      color: #FFF8ED;
+      background: rgba(47, 39, 34, .16);
+      font-size: 7.9pt;
+      line-height: 1;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <article class="page">
+    <aside class="sidebar">
+      <span class="status-pill">运营新人</span>
+
+      <section class="section">
+        <h2 class="section-title">基本信息</h2>
+        <p class="contact-line">杭州 · 两周内到岗</p>
+        <p class="contact-line">13800000000</p>
+        <p class="contact-line">linyuqing.example@example.com</p>
+        <p class="contact-line">https://example.com/portfolio</p>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">教育背景</h2>
+        <p class="edu-line"><strong>浙江某高校</strong></p>
+        <p class="edu-line">市场营销 · 本科</p>
+        <p class="edu-line">2019.09 - 2023.06</p>
+        <p class="edu-line">主修消费者行为、市场调研、品牌传播等课程</p>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">技能关键词</h2>
+        <div class="tag-list">
+          <span class="tag">活动执行</span>
+          <span class="tag">社群维护</span>
+          <span class="tag">内容整理</span>
+          <span class="tag">数据记录</span>
+          <span class="tag">用户反馈</span>
+          <span class="tag">AI 文案辅助</span>
+        </div>
+      </section>
+
+      <section class="section" data-required-value="从活动目标、现场约束和用户反馈出发，整理输入、流程、输出与复盘方式。适配方向：门店运营助理 / 活动社群运营 / 用户运营助理。">
+        <h2 class="section-title">方法与场景</h2>
+        <p class="side-text"><strong>运营拆解：</strong>从活动目标、现场约束和用户反馈出发，整理输入、流程、输出与复盘方式。</p>
+        <p class="mini-note">适配方向：门店运营助理 / 活动社群运营 / 用户运营助理。</p>
+      </section>
+    </aside>
+
+    <main class="main">
+      <header class="name-block">
+        <p class="micro-kicker">活动执行 / 社群运营 / AI 文案辅助</p>
+        <div class="name-row">
+          <h1>林雨晴</h1>
+          <p class="roman-name">LIN YUQING</p>
+        </div>
+        <p class="target">求职意向：活动社群运营 / 用户运营助理</p>
+        <p class="positioning">有线下活动执行、社群维护和内容整理经验的运营新人</p>
+      </header>
+
+      <section class="section">
+        <h2 class="section-title"><span class="num">01</span><span>个人优势</span></h2>
+        <ul>
+          <li>有校园活动和本地生活类兼职经历，熟悉活动前期准备、现场执行、用户反馈收集等基础运营动作。</li>
+          <li>能把零散沟通内容整理成表格、流程清单和复盘记录，适合承担运营助理、活动执行、社群运营等岗位的基础交付。</li>
+          <li>使用过 AI 工具辅助改写活动文案和社群提醒，但相关效果数据仍需补充验证。</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title"><span class="num">02</span><span>项目 / 作品</span></h2>
+
+        <article class="project">
+          <div class="project-head">
+            <h3 data-required>线下活动执行与复盘整理</h3>
+            <span class="meta">2023</span>
+          </div>
+          <p class="subline"><span class="signal">输入</span> 活动目标与现场限制 · <span class="signal">流程</span> 清单拆解 / 社群提醒 / 反馈整理 · <span class="signal clay">输出</span> 活动执行清单与复盘记录</p>
+          <ul>
+            <li>整理活动前中后事项清单，覆盖物料、人员、社群通知和反馈记录。</li>
+            <li>复盘用户反馈中的高频问题，形成下一轮活动提醒话术参考。</li>
+          </ul>
+        </article>
+
+        <article class="project">
+          <div class="project-head">
+            <h3 data-required>AI 辅助运营文案案例</h3>
+            <span class="meta">2024</span>
+          </div>
+          <p class="subline"><span class="signal">输入</span> 文案需求与品牌语气 · <span class="signal">流程</span> AI 初稿 / 人工改写 / 发布检查 · <span class="signal clay">输出</span> 可展示文案对比样例</p>
+          <ul>
+            <li>保留 AI 初稿与修改后版本对比，便于面试说明工具使用过程。</li>
+            <li>当前缺少发布效果数据，正式投递前应补充阅读、互动或转化反馈。</li>
+          </ul>
+        </article>
+
+        <article class="project">
+          <div class="project-head">
+            <h3 data-required></h3>
+            <span class="meta"></span>
+          </div>
+          <p class="subline"><span class="signal">输入</span>  · <span class="signal">流程</span>  · <span class="signal clay">输出</span> </p>
+          <ul>
+            <li></li>
+            <li></li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title"><span class="num">03</span><span>相关经历</span></h2>
+        <article class="exp">
+          <div class="exp-head">
+            <h3 data-required>杭州某本地生活品牌 | 运营兼职</h3>
+            <span class="meta">2023.07 - 2024.03</span>
+          </div>
+          <p class="subline">支持活动执行、社群提醒、物料核对和用户反馈整理</p>
+          <ul class="compact-list">
+            <li>协助整理活动执行清单，跟进场地、物料、人员排班等基础事项，支持活动按计划落地。</li>
+            <li>维护活动社群日常提醒和答疑，整理用户常见问题，为后续活动话术和流程调整提供参考。</li>
+          </ul>
+        </article>
+
+        <article class="exp">
+          <div class="exp-head">
+            <h3 data-required></h3>
+            <span class="meta"></span>
+          </div>
+          <p class="subline"></p>
+        </article>
+
+        <article class="exp">
+          <div class="exp-head">
+            <h3 data-required></h3>
+            <span class="meta"></span>
+          </div>
+          <p class="subline"></p>
+        </article>
+      </section>
+    </main>
+  </article>
+
+  <script>
+    document.querySelectorAll("li").forEach((item) => {
+      if (!item.textContent.trim()) item.remove();
+    });
+    document.querySelectorAll("p").forEach((item) => {
+      if (!item.textContent.trim()) item.remove();
+    });
+    document.querySelectorAll("[data-required-value]").forEach((item) => {
+      if (!item.dataset.requiredValue.trim()) item.remove();
+    });
+    document.querySelectorAll("[data-required]").forEach((item) => {
+      if (!item.textContent.trim()) item.closest("article")?.remove();
+    });
+    document.querySelectorAll(".subline").forEach((item) => {
+      const compact = item.textContent.replace(/[输入流程输出·：\\s]/g, "");
+      if (!compact) item.remove();
+    });
+    document.querySelectorAll(".sidebar .section").forEach((section) => {
+      const title = section.querySelector(".section-title")?.textContent.trim() || "";
+      const rest = section.textContent.replace(title, "").trim();
+      if (!rest) section.remove();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+interface:
+  display_name: "求职陪跑"
+  short_description: "国内求职材料、评分诊断、面试、投递、谈薪和复盘"
+  default_prompt: "使用 $job-search-companion 帮我把个人背景、项目经历、目标岗位、投递流程、面试准备、材料评分、失败复盘和求职节奏整理成一套国内求职计划。"

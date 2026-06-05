@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>{{name}} - {{target_role}} - 资料卡网格版简历</title>
+  <style>
+    @page { size: A4; margin: 12mm 13mm; }
+    :root {
+      --accent: #2563eb;
+      --accent-dark: #1e3a8a;
+      --accent-soft: #eff6ff;
+      --accent-border: #bfdbfe;
+      --sidebar-bg: #f8fafc;
+      --paper: #ffffff;
+      --background: #ffffff;
+      --text: #111827;
+      --muted: #5f6b7a;
+      --line: #dbe3ea;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+      font-size: 10pt;
+      line-height: 1.42;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    h1, h2, h3, p { margin: 0; }
+    .page { width: 184mm; min-height: 273mm; background: var(--paper); }
+    .hero {
+      display: grid;
+      grid-template-columns: 62mm 1fr;
+      gap: 8pt;
+      margin-bottom: 8pt;
+    }
+    .profile {
+      padding: 10pt;
+      border-radius: 9pt;
+      color: white;
+      background: linear-gradient(150deg, var(--accent-dark), var(--accent));
+    }
+    h1 { font-size: 24pt; line-height: 1.08; font-weight: 840; letter-spacing: 0; }
+    .target { margin-top: 5pt; font-size: 10pt; font-weight: 720; opacity: .95; }
+    .meta { margin-top: 9pt; font-size: 8.3pt; line-height: 1.45; opacity: .92; overflow-wrap: anywhere; }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 7pt;
+    }
+    .card {
+      break-inside: avoid;
+      padding: 8pt;
+      border: 1px solid var(--accent-border);
+      border-radius: 8pt;
+      background: linear-gradient(180deg, var(--accent-soft), #fff 70%);
+    }
+    .card h3 { color: var(--accent-dark); font-size: 9.7pt; margin-bottom: 4pt; }
+    .card p { color: #263243; font-size: 8.75pt; }
+    .section { break-inside: avoid; margin-top: 10pt; }
+    .section-title { margin-bottom: 6pt; font-size: 12pt; font-weight: 820; }
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 7pt;
+    }
+    .project { min-height: 38mm; }
+    .item { break-inside: avoid; margin-top: 7pt; }
+    .item-head { display: grid; grid-template-columns: 1fr auto; gap: 10pt; font-weight: 760; }
+    .time { color: var(--muted); font-size: 8.5pt; font-weight: 500; white-space: nowrap; }
+    .subline { margin-top: 1.5pt; color: var(--muted); font-size: 8.8pt; }
+    ul { list-style: none; margin: 3pt 0 0; padding: 0; }
+    li {
+      position: relative;
+      margin: 2pt 0;
+      padding-left: 9pt;
+      color: #202a38;
+      font-size: 9.1pt;
+      line-height: 1.38;
+    }
+    li::before {
+      content: "";
+      position: absolute;
+      left: 1pt;
+      top: .67em;
+      width: 3pt;
+      height: 3pt;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    .skills {
+      padding: 7pt 8pt;
+      border: 1px solid var(--line);
+      border-radius: 7pt;
+      background: #fbfdff;
+      color: #263243;
+      font-size: 9.2pt;
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <section class="profile">
+        <h1>{{name}}</h1>
+        <p class="target">{{target_role}}</p>
+        <p class="meta">{{phone}}<br>{{email}}<br>{{city}} | {{availability}}<br>{{portfolio_url}}</p>
+      </section>
+      <section class="summary-grid">
+        <article class="card"><h3>定位</h3><p>{{one_line_positioning}}</p></article>
+        <article class="card"><h3>优势 01</h3><p>{{advantage_1}}</p></article>
+        <article class="card"><h3>优势 02</h3><p>{{advantage_2}}</p></article>
+        <article class="card"><h3>教育</h3><p>{{school}} | {{major}} | {{degree}}<br>{{education_time}}</p></article>
+      </section>
+    </header>
+
+    <section class="section">
+      <h2 class="section-title">项目 / 作品卡片</h2>
+      <div class="project-grid">
+        <article class="card project"><h3>{{project_1_name}}</h3><p>{{project_1_summary}}</p><ul><li>{{project_1_bullet_1}}</li><li>{{project_1_bullet_2}}</li></ul></article>
+        <article class="card project"><h3>{{project_2_name}}</h3><p>{{project_2_summary}}</p><ul><li>{{project_2_bullet_1}}</li><li>{{project_2_bullet_2}}</li></ul></article>
+        <article class="card project"><h3>{{project_3_name}}</h3><p>{{project_3_summary}}</p><ul><li>{{project_3_bullet_1}}</li><li>{{project_3_bullet_2}}</li></ul></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">工作 / 实习经历</h2>
+      <article class="item">
+        <div class="item-head"><span>{{experience_1_title}}</span><span class="time">{{experience_1_time}}</span></div>
+        <p class="subline">{{experience_1_subline}}</p>
+        <ul><li>{{experience_1_bullet_1}}</li><li>{{experience_1_bullet_2}}</li><li>{{work_bullet_3}}</li></ul>
+      </article>
+      <article class="item">
+        <div class="item-head"><span>{{experience_2_title}}</span><span class="time">{{experience_2_time}}</span></div>
+        <p class="subline">{{experience_2_subline}}</p>
+        <ul><li>{{experience_2_bullet_1}}</li><li>{{experience_2_bullet_2}}</li></ul>
+      </article>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">专业技能</h2>
+      <p class="skills">{{skills_grouped}}</p>
+    </section>
+  </main>
+</body>
+</html>

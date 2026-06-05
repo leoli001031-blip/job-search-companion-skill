@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>{{name}} - {{target_role}} - 经典 Markdown 简历</title>
+  <style>
+    @page { size: A4; margin: 0; }
+    :root {
+      --accent: #2563eb;
+      --accent-dark: #1e3a8a;
+      --accent-soft: #eff6ff;
+      --accent-border: #bfdbfe;
+      --sidebar-bg: #f8fafc;
+      --paper: #ffffff;
+      --background: #ffffff;
+      --text: #111827;
+      --muted: #5f6b7a;
+      --line: #dbe3ea;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: "Songti SC", "STSong", "SimSun", "PingFang SC", serif;
+      font-size: 10.3pt;
+      line-height: 1.48;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    h1, h2, h3, p { margin: 0; }
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      padding: 16mm 18mm 17mm;
+      background: var(--paper);
+    }
+    .header { margin-bottom: 8pt; padding-bottom: 6pt; border-bottom: 1.2pt solid #111827; }
+    h1 { font-size: 24pt; line-height: 1.08; font-weight: 800; letter-spacing: 0; }
+    .target { margin-top: 3pt; font-family: "PingFang SC", "Microsoft YaHei", sans-serif; color: var(--accent-dark); font-size: 10.2pt; font-weight: 700; }
+    .meta { margin-top: 3pt; color: var(--muted); font-size: 8.8pt; font-family: "PingFang SC", "Microsoft YaHei", sans-serif; }
+    .section { break-inside: avoid; margin-top: 8pt; }
+    .section-title {
+      margin-bottom: 4pt;
+      padding-bottom: 2pt;
+      border-bottom: 1px solid var(--line);
+      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+      font-size: 11.2pt;
+      font-weight: 800;
+    }
+    .item { break-inside: avoid; margin-top: 5pt; }
+    .item-head { display: grid; grid-template-columns: 1fr auto; gap: 10pt; font-weight: 760; font-family: "PingFang SC", "Microsoft YaHei", sans-serif; }
+    .time { color: var(--muted); font-size: 8.5pt; font-weight: 500; white-space: nowrap; }
+    .subline { margin-top: 1.5pt; color: var(--muted); font-size: 8.8pt; font-family: "PingFang SC", "Microsoft YaHei", sans-serif; }
+    ul { margin: 3pt 0 0 14pt; padding: 0; }
+    li { margin: 1.8pt 0; color: #202a38; font-size: 9.25pt; line-height: 1.42; }
+    .summary { color: #263243; }
+    .skills { color: #263243; font-family: "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 9.2pt; }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="header">
+      <h1>{{name}}</h1>
+      <p class="target">{{target_role}}</p>
+      <p class="meta">{{phone}} | {{email}} | {{city}} | {{availability}} | {{portfolio_url}}</p>
+    </header>
+
+    <section class="section">
+      <h2 class="section-title">个人优势</h2>
+      <p class="summary">{{advantage_1}}</p>
+      <p class="summary">{{advantage_2}}</p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">教育背景</h2>
+      <div class="item-head"><span>{{school}} | {{major}} | {{degree}}</span><span class="time">{{education_time}}</span></div>
+      <p class="subline">{{education_note}}</p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">工作 / 实习经历</h2>
+      <article class="item">
+        <div class="item-head"><span>{{experience_1_title}}</span><span class="time">{{experience_1_time}}</span></div>
+        <p class="subline">{{experience_1_subline}}</p>
+        <ul><li>{{experience_1_bullet_1}}</li><li>{{experience_1_bullet_2}}</li><li>{{work_bullet_3}}</li></ul>
+      </article>
+      <article class="item">
+        <div class="item-head"><span>{{experience_2_title}}</span><span class="time">{{experience_2_time}}</span></div>
+        <p class="subline">{{experience_2_subline}}</p>
+        <ul><li>{{experience_2_bullet_1}}</li><li>{{experience_2_bullet_2}}</li></ul>
+      </article>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">项目 / 作品</h2>
+      <article class="item">
+        <div class="item-head"><span>{{project_1_name}}</span><span class="time">{{project_1_time}}</span></div>
+        <p class="subline">{{project_1_summary}}</p>
+        <ul><li>{{project_1_bullet_1}}</li><li>{{project_1_bullet_2}}</li></ul>
+      </article>
+      <article class="item">
+        <div class="item-head"><span>{{project_2_name}}</span><span class="time">{{project_2_time}}</span></div>
+        <p class="subline">{{project_2_summary}}</p>
+        <ul><li>{{project_2_bullet_1}}</li><li>{{project_2_bullet_2}}</li></ul>
+      </article>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">专业技能</h2>
+      <p class="skills">{{skills_grouped}}</p>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>{{name}} - {{target_role}} - 单栏照片版简历</title>
+  <style>
+    @page { size: A4; margin: 0; }
+    :root {
+      --accent: #2563eb;
+      --accent-dark: #1e3a8a;
+      --accent-soft: #eff6ff;
+      --accent-border: #bfdbfe;
+      --sidebar-bg: #f8fafc;
+      --text: #111827;
+      --muted: #5f6b7a;
+      --line: #dbe3ea;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+      font-size: 10.6pt;
+      line-height: 1.48;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    h1, h2, h3, p { margin: 0; }
+    a { color: inherit; text-decoration: none; }
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      padding: 16mm 16mm 14mm;
+      background: var(--paper);
+    }
+    .header {
+      display: grid;
+      grid-template-columns: 1fr 27mm;
+      gap: 12mm;
+      align-items: start;
+      padding-bottom: 10pt;
+      border-bottom: 1.6pt solid var(--accent);
+    }
+    h1 {
+      font-size: 25pt;
+      line-height: 1.08;
+      letter-spacing: 0;
+      font-weight: 780;
+    }
+    .target {
+      margin-top: 5pt;
+      color: var(--accent-dark);
+      font-size: 11pt;
+      font-weight: 720;
+    }
+    .contact {
+      margin-top: 5pt;
+      color: var(--muted);
+      font-size: 9.2pt;
+    }
+    .photo-frame {
+      position: relative;
+      justify-self: center;
+      width: 25mm;
+      height: 32mm;
+      border: 1px solid var(--line);
+      background: var(--accent-soft);
+      overflow: hidden;
+    }
+    .photo-frame::after {
+      content: "照片";
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      color: var(--accent-dark);
+      font-size: 8.5pt;
+    }
+    .photo-frame:has(img:not([src=""]))::after { display: none; }
+    .photo {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .photo[src=""] { display: none; }
+    .section {
+      break-inside: avoid;
+      margin-top: 11pt;
+    }
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 6pt;
+      margin-bottom: 5pt;
+      color: var(--text);
+      font-size: 11.4pt;
+      line-height: 1.25;
+      font-weight: 760;
+    }
+    .section-title::before {
+      content: "";
+      width: 3pt;
+      height: 11pt;
+      border-radius: 2pt;
+      background: var(--accent);
+      flex: none;
+    }
+    .item {
+      break-inside: avoid;
+      margin-top: 7pt;
+    }
+    .item-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 14pt;
+      font-weight: 760;
+      line-height: 1.35;
+    }
+    .time {
+      flex: none;
+      color: var(--muted);
+      font-size: 9.1pt;
+      font-weight: 500;
+    }
+    .subline {
+      margin-top: 2pt;
+      color: var(--muted);
+      font-size: 9.2pt;
+    }
+    ul {
+      list-style: none;
+      margin: 4pt 0 0;
+      padding: 0;
+    }
+    li {
+      position: relative;
+      margin: 2.7pt 0;
+      padding-left: 10pt;
+      color: #253142;
+      font-size: 9.75pt;
+      line-height: 1.46;
+    }
+    li::before {
+      content: "";
+      position: absolute;
+      left: 1pt;
+      top: .68em;
+      width: 3pt;
+      height: 3pt;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    .skill-line {
+      color: #273449;
+      font-size: 9.5pt;
+      line-height: 1.45;
+    }
+    .note:empty { display: none; }
+    .note {
+      margin-top: 8pt;
+      color: var(--muted);
+      font-size: 8.7pt;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <div>
+        <h1>{{name}}</h1>
+        <p class="target">求职意向：{{target_role}}</p>
+        <p class="contact">{{phone}} | {{email}} | {{city}} | {{availability}} | {{portfolio_url}}</p>
+      </div>
+      <div class="photo-frame">
+        <img class="photo" src="{{photo_src}}" alt="职业照片">
+      </div>
+    </header>
+
+    <section class="section">
+      <h2 class="section-title">教育背景</h2>
+      <div class="item">
+        <div class="item-head"><span>{{school}} | {{major}} | {{degree}}</span><span class="time">{{education_time}}</span></div>
+        <p class="subline">{{education_note}}</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">个人优势</h2>
+      <ul>
+        <li>{{advantage_1}}</li>
+        <li>{{advantage_2}}</li>
+        <li>{{advantage_3}}</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">专业技能</h2>
+      <p class="skill-line">{{skills_grouped}}</p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">工作 / 实习经历</h2>
+      <div class="item">
+        <div class="item-head"><span>{{company}} | {{role}}</span><span class="time">{{work_time}}</span></div>
+        <p class="subline">{{work_subline}}</p>
+        <ul>
+          <li>{{work_bullet_1}}</li>
+          <li>{{work_bullet_2}}</li>
+          <li>{{work_bullet_3}}</li>
+          <li>{{work_bullet_4}}</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">项目 / 作品</h2>
+      <div class="item">
+        <div class="item-head"><span>{{project_name}}</span><span class="time">{{project_time}}</span></div>
+        <p class="subline">{{project_subline}}</p>
+        <ul>
+          <li>{{project_bullet_1}}</li>
+          <li>{{project_bullet_2}}</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">证书 / 校园 / 获奖</h2>
+      <ul>
+        <li>{{certificate_1}}</li>
+        <li>{{campus_or_award_1}}</li>
+      </ul>
+    </section>
+
+    <p class="note">{{resume_note}}</p>
+  </div>
+</body>
+</html>

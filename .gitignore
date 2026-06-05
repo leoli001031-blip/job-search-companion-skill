@@ -1,0 +1,15 @@
+.DS_Store
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local render outputs
+dist/
+out/
+tmp/
+*.pdf
+docs/demo/*.qa.md
+
+# Keep README screenshots, but ignore ad-hoc local captures elsewhere
+screenshots/

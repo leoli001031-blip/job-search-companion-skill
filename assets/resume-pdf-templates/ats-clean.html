@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>{{name}} - {{target_role}} - ATS版简历</title>
+  <style>
+    @page { size: A4; margin: 14mm 15mm; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: #111827;
+      font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif;
+      font-size: 10.8pt;
+      line-height: 1.45;
+      background: var(--paper, #fff);
+    }
+    h1, h2, h3, p { margin: 0; }
+    h1 { font-size: 22pt; letter-spacing: 0; }
+    h2 {
+      margin-top: 10pt;
+      padding-bottom: 3pt;
+      border-bottom: 1px solid #d1d5db;
+      font-size: 12pt;
+    }
+    h3 { margin-top: 7pt; font-size: 10.8pt; }
+    ul { margin: 4pt 0 0 16pt; padding: 0; }
+    li { margin: 2pt 0; }
+    a { color: inherit; text-decoration: none; }
+    .header { margin-bottom: 8pt; }
+    .meta { margin-top: 4pt; color: #374151; }
+    .summary { margin-top: 6pt; }
+    .item { break-inside: avoid; margin-top: 6pt; }
+    .item-head { display: flex; justify-content: space-between; gap: 12pt; font-weight: 700; }
+    .time { flex: none; color: #4b5563; font-weight: 400; }
+    .skills { margin-top: 4pt; }
+    @media print {
+      body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1>{{name}}</h1>
+    <p class="meta">{{phone}} | {{email}} | {{city}} | {{portfolio_url}}</p>
+    <p class="summary">求职意向：{{target_role}}</p>
+  </header>
+
+  <section>
+    <h2>教育背景</h2>
+    <div class="item">
+      <div class="item-head"><span>{{school}} | {{major}} | {{degree}}</span><span class="time">{{education_time}}</span></div>
+      <p>{{education_note}}</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>个人优势</h2>
+    <ul>
+      <li>{{advantage_1}}</li>
+      <li>{{advantage_2}}</li>
+      <li>{{advantage_3}}</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>专业技能</h2>
+    <p class="skills">{{skills_grouped}}</p>
+  </section>
+
+  <section>
+    <h2>工作 / 实习经历</h2>
+    <div class="item">
+      <div class="item-head"><span>{{company}} | {{role}}</span><span class="time">{{work_time}}</span></div>
+      <ul>
+        <li>{{work_bullet_1}}</li>
+        <li>{{work_bullet_2}}</li>
+        <li>{{work_bullet_3}}</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>项目 / 作品</h2>
+    <div class="item">
+      <div class="item-head"><span>{{project_name}}</span><span class="time">{{project_time}}</span></div>
+      <ul>
+        <li>{{project_bullet_1}}</li>
+        <li>{{project_bullet_2}}</li>
+      </ul>
+    </div>
+  </section>
+</body>
+</html>

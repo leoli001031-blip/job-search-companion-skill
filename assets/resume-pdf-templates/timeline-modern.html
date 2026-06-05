@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>{{name}} - {{target_role}} - 时间线简历</title>
+  <style>
+    @page { size: A4; margin: 13mm 14mm; }
+    :root {
+      --accent: #2563eb;
+      --accent-dark: #1e3a8a;
+      --accent-soft: #eff6ff;
+      --accent-border: #bfdbfe;
+      --sidebar-bg: #f8fafc;
+      --paper: #ffffff;
+      --background: #ffffff;
+      --text: #111827;
+      --muted: #5f6b7a;
+      --line: #dbe3ea;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+      font-size: 10.2pt;
+      line-height: 1.45;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    h1, h2, h3, p { margin: 0; }
+    .page { width: 182mm; min-height: 271mm; background: var(--paper); }
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16pt;
+      padding-bottom: 10pt;
+      margin-bottom: 10pt;
+      border-bottom: 2pt solid var(--accent);
+    }
+    h1 { font-size: 25pt; line-height: 1.06; font-weight: 820; letter-spacing: 0; }
+    .target { margin-top: 4pt; color: var(--accent-dark); font-weight: 760; }
+    .meta { color: var(--muted); font-size: 8.8pt; text-align: right; line-height: 1.45; }
+    .section { break-inside: avoid; margin-top: 11pt; }
+    .section-title {
+      margin-bottom: 7pt;
+      color: var(--text);
+      font-size: 12pt;
+      font-weight: 820;
+    }
+    .section-title span {
+      display: inline-block;
+      padding: 1pt 6pt;
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-border);
+      color: var(--accent-dark);
+      border-radius: 999pt;
+      font-size: 9pt;
+      margin-left: 6pt;
+      vertical-align: 1pt;
+    }
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 7pt;
+    }
+    .summary p {
+      padding: 7pt;
+      border: 1px solid var(--line);
+      background: #fbfdff;
+      border-radius: 4pt;
+      font-size: 9pt;
+      color: #263243;
+    }
+    .timeline { position: relative; }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 24mm;
+      top: 3pt;
+      bottom: 4pt;
+      width: 1px;
+      background: var(--line);
+    }
+    .event {
+      position: relative;
+      display: grid;
+      grid-template-columns: 30mm 1fr;
+      gap: 9pt;
+      break-inside: avoid;
+      margin-top: 8pt;
+    }
+    .event::before {
+      content: "";
+      position: absolute;
+      left: 22.8mm;
+      top: 5pt;
+      width: 6pt;
+      height: 6pt;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 3pt var(--accent-soft);
+    }
+    .date {
+      color: var(--accent-dark);
+      font-weight: 760;
+      font-size: 8.4pt;
+      line-height: 1.35;
+      padding-top: 1pt;
+    }
+    .event-main h3 { font-size: 10.8pt; line-height: 1.3; }
+    .subline { margin-top: 1.5pt; color: var(--muted); font-size: 8.8pt; }
+    ul { list-style: none; margin: 3pt 0 0; padding: 0; }
+    li {
+      position: relative;
+      margin: 2pt 0;
+      padding-left: 9pt;
+      color: #202a38;
+      font-size: 9.2pt;
+      line-height: 1.4;
+    }
+    li::before {
+      content: "";
+      position: absolute;
+      left: 1pt;
+      top: .67em;
+      width: 3pt;
+      height: 3pt;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    .skills { color: #263243; font-size: 9.3pt; }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div>
+        <h1>{{name}}</h1>
+        <p class="target">{{target_role}}</p>
+      </div>
+      <p class="meta">{{phone}}<br>{{email}}<br>{{city}} | {{availability}}<br>{{portfolio_url}}</p>
+    </header>
+
+    <section class="section">
+      <h2 class="section-title">个人优势<span>summary</span></h2>
+      <div class="summary">
+        <p>{{advantage_1}}</p>
+        <p>{{advantage_2}}</p>
+        <p>{{advantage_3}}</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">经历时间线<span>experience</span></h2>
+      <div class="timeline">
+        <article class="event">
+          <div class="date">{{experience_1_time}}</div>
+          <div class="event-main">
+            <h3>{{experience_1_title}}</h3>
+            <p class="subline">{{experience_1_subline}}</p>
+            <ul>
+              <li>{{experience_1_bullet_1}}</li>
+              <li>{{experience_1_bullet_2}}</li>
+            </ul>
+          </div>
+        </article>
+        <article class="event">
+          <div class="date">{{project_1_time}}</div>
+          <div class="event-main">
+            <h3>{{project_1_name}}</h3>
+            <p class="subline">{{project_1_summary}}</p>
+            <ul>
+              <li>{{project_1_bullet_1}}</li>
+              <li>{{project_1_bullet_2}}</li>
+            </ul>
+          </div>
+        </article>
+        <article class="event">
+          <div class="date">{{project_2_time}}</div>
+          <div class="event-main">
+            <h3>{{project_2_name}}</h3>
+            <p class="subline">{{project_2_summary}}</p>
+            <ul>
+              <li>{{project_2_bullet_1}}</li>
+              <li>{{project_2_bullet_2}}</li>
+            </ul>
+          </div>
+        </article>
+        <article class="event">
+          <div class="date">{{education_time}}</div>
+          <div class="event-main">
+            <h3>{{school}} | {{major}} | {{degree}}</h3>
+            <p class="subline">{{education_note}}</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">专业技能<span>skills</span></h2>
+      <p class="skills">{{skills_grouped}}</p>
+    </section>
+  </main>
+</body>
+</html>
