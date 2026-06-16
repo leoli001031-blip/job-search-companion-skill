@@ -57,11 +57,11 @@ PDF 场景先用短句说明真实状态：
 | 顶部色带紧凑版 | top-band-compact.html | 希望有强第一眼但正文仍传统、适合人工阅读 | 否 | 大色带打印耗墨，不适合唯一投递版 |
 | 顶部色带照片版 | top-band-compact-photo.html | 需要强首屏和照片位，适合人工转发 | 是 | 色带和照片都抢眼，岗位不合适会显浮 |
 | 经典 Markdown 版 | classic-markdown.html | Markdown/学术/正式文本感、教育前置、打印优先 | 否 | 视觉记忆点弱 |
-| 资料卡网格版 | profile-card-grid.html | 作品、项目、优势点可以卡片化展示 | 否 | 内容太长会拥挤 |
 | 技能仪表盘版 | skill-dashboard.html | 岗位技能标签明确，想突出能力结构和项目证明 | 否 | 容易显“工具化”，需保守使用 |
 | 非对称双栏照片版 | compact-two-column-photo.html | 双栏信息密度高且需要照片 | 是 | 比无照片版更挤，只适合内容足且照片稳定 |
 | zc 视觉侧栏版 | zc-sidebar-visual.html | 用户明确要求 zc 风格简历、个人审美/作品集感、人工阅读 | 否 | 不适合作为唯一 ATS 版 |
 | zc 视觉侧栏照片版 | zc-sidebar-visual-photo.html | 用户明确要求 zc 风格简历且需要照片位/照片占位 | 可占位 | 真实照片质量会显著影响观感 |
+| zc 两页内容版 | zc-sidebar-visual-photo-two-page.html | 用户明确要求 zc 风格，且一页视觉版明显压缩内容 | 可占位 | 不适合作为唯一 ATS 版；适合人工阅读或作品集附件 |
 ```
 
 ## PDF 格式总览
@@ -72,7 +72,7 @@ Skill 内置 PDF 格式分 4 层，不要混用：
 1. ATS 解析层：ats-clean
 2. 国内人工阅读层：cn-single-polished / cn-sidebar / cn-formal / latex-compact / compact-two-column / timeline-modern / executive-summary / right-rail-modern / top-band-compact / classic-markdown
 3. 照片场景层：cn-single-polished-photo / cn-sidebar-photo / cn-formal-photo
-4. 作品与个人视觉层：portfolio-ai / evidence-cards / profile-card-grid / skill-dashboard / zc-sidebar-visual / zc-sidebar-visual-photo
+4. 作品与个人视觉层：portfolio-ai / evidence-cards / skill-dashboard / zc-sidebar-visual / zc-sidebar-visual-photo / zc-sidebar-visual-photo-two-page
 ```
 
 使用原则：
@@ -89,7 +89,7 @@ Skill 内置 PDF 格式分 4 层，不要混用：
 用户明确说：zc风格简历 / zc配色 / 暖米咖 / 用我的设计规范 / warm-workbench
 命令明确指定：--theme zc
 结构化输入明确包含：resumeStyle: "zc" 或 profile.style: "zc"
-模板明确指定：--template zc-sidebar-visual 或 --template zc-sidebar-visual-photo
+模板明确指定：--template zc-sidebar-visual、--template zc-sidebar-visual-photo 或 --template zc-sidebar-visual-photo-two-page
 ```
 
 如果用户只是说“做得好看一点”“左侧栏”“视觉版”“带照片”，不要默认套 zc；先用 `cn-single-polished`、`cn-sidebar`、`cn-formal` 或询问是否要 zc 风格。
@@ -124,6 +124,58 @@ zc 风格数据建议：
 }
 ```
 
+## 内容密度与页数判断
+
+不要为了“视觉版必须一页”而吞掉关键证据。生成 PDF 前先判断内容密度：
+
+```text
+一页视觉摘要版：适合快速人工阅读，突出定位、3 条优势、2-3 个核心项目或经历。
+两页内容版：适合项目型、转型、作品驱动、方法论需要解释的候选人。
+ATS 单栏版：适合平台解析、官网网申和关键词检索。
+```
+
+如果出现以下情况，优先建议“两页内容版 + ATS 单栏版”，不要硬塞一页：
+
+- 核心项目超过 3 个，且每个项目都需要解释输入、流程、输出或证据链接。
+- 候选人是转型/复合背景，需要说明迁移逻辑、方法论或业务理解。
+- 一页版为了排版删掉教育、关键经历、项目链接、成果证据或技能工具。
+- A4 预览出现正文溢出、底部裁切、行距过密、字号过小或侧栏空而主栏挤。
+
+交付时可以明确区分：
+
+```text
+一页视觉摘要版：用于 BOSS/微信/内推快速转发。
+两页内容版：用于 HR/业务负责人深入阅读或作为作品集附件。
+ATS 单栏版：用于官网网申和平台解析。
+```
+
+## 预览与颜色 QA
+
+PDF/PNG 预览必须只展示 A4 页面本身，不要把浏览器视口右侧空白背景截进预览图。多页 PDF 可分别截取每个 `.page`，再纵向合成长图。
+
+模板留白必须在 A4 页面容器内真实可见。不要只依赖 `@page margin` 来制造打印边距，否则 HTML/PNG 预览会丢失上边距，看起来贴边。推荐做法：
+
+```css
+@page { size: A4; margin: 0; }
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  padding: 12mm 14mm;
+}
+```
+
+没有 `.page` 容器的 ATS/纯文本模板，也应给 `body` 设置 A4 宽高和内边距，保证预览和 PDF 一致。
+
+zc 模板的右侧正文底色应使用纸面色 `--paper`（默认 `#FFFCF6`），不要使用偏粉的 `Surface Soft` 作为主栏大面积底色；`Surface Soft` 只适合轻量层次或小面积辅助。若用户反馈“右侧发红/发粉”，优先检查：
+
+- `.page` 和 `.main` 是否使用 `var(--paper)`。
+- PNG 是否错误使用 fullPage 截图导致浏览器背景被截入。
+- PDF 是否经过系统 QuickLook 或浏览器重新渲染验证。
+
+## 个人信息隔离
+
+PDF 模板、示例数据和 Skill 文档必须使用通用占位符，不得沉淀真实用户姓名、电话、邮箱、学校、公司、项目名、目标 JD 或个人观点。真实候选人信息只能写入用户工作区的输出文件或临时测试数据。
+
 ## 模板选择规则
 
 先选风格，再判断是否需要照片：
@@ -141,7 +193,6 @@ zc 风格数据建议：
 想要侧栏但不想左侧大色块 -> right-rail-modern
 想要强首屏但正文保持稳 -> top-band-compact
 Markdown/正式文本/教育前置 -> classic-markdown
-项目和优势适合卡片化 -> profile-card-grid
 技能标签明确、项目证明充足 -> skill-dashboard
 平台解析或官网网申 -> ats-clean
 ```
@@ -255,12 +306,6 @@ compact-two-column -> compact-two-column-photo
 - 用户内容足够支撑双栏，同时目标行业或用户明确需要照片。
 - 照片放左栏顶部；如果左栏内容不够或照片质量一般，优先退回 `compact-two-column` 或 `cn-sidebar-photo`。
 - 双栏照片版不适合作为唯一 ATS 版。
-
-可以加 `profile-card-grid`：
-
-- 用户的优势、项目、作品可以拆成几个清晰卡片。
-- 适合作品/项目驱动的运营、内容、产品助理、设计、AI 应用等方向。
-- 文字太多时不要使用；卡片版需要更短、更准的 bullet。
 
 可以加 `skill-dashboard`：
 

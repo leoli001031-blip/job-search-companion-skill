@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>{{name}} - {{target_role}} - 摘要优先版简历</title>
   <style>
-    @page { size: A4; margin: 13mm 14mm; }
+    @page { size: A4; margin: 0; }
     :root {
       --accent: #2563eb;
       --accent-dark: #1e3a8a;
@@ -29,7 +29,12 @@
       print-color-adjust: exact;
     }
     h1, h2, h3, p { margin: 0; }
-    .page { width: 182mm; min-height: 271mm; background: var(--paper); }
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      padding: 13mm 14mm;
+      background: var(--paper);
+    }
     .hero {
       padding: 11pt 13pt;
       border: 1px solid var(--accent-border);
