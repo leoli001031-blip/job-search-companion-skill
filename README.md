@@ -118,26 +118,87 @@ PDF 输出：
 把这版简历做成系统解析版和一个清新绿视觉版 PDF，先给我版式方案。
 ```
 
-## 安装
+## 安装与使用
 
-把本仓库放到 Codex 技能目录：
+这是一个平台无关的 Agent Skill / instruction pack。核心结构只有一个要求：整个文件夹里必须有 `SKILL.md`，旁边保留 `references/`、`assets/`、`scripts/`。
+
+### Claude Code
+
+个人全局安装：
+
+```bash
+mkdir -p ~/.claude/skills
+git clone https://github.com/leoli001031-blip/job-search-companion-skill.git ~/.claude/skills/job-search-companion
+```
+
+项目内安装：
+
+```bash
+mkdir -p .claude/skills
+git clone https://github.com/leoli001031-blip/job-search-companion-skill.git .claude/skills/job-search-companion
+```
+
+在 Claude Code 中可以直接说：
+
+```text
+用 /job-search-companion 帮我整理求职材料。
+```
+
+如果 `/job-search-companion` 没出现在菜单里，先确认目录结构是：
+
+```text
+~/.claude/skills/job-search-companion/SKILL.md
+```
+
+不要只把仓库内容散放在 `~/.claude/skills/` 根目录。
+
+### Codex
 
 ```bash
 mkdir -p ~/.codex/skills
-git clone https://github.com/<your-org>/job-search-companion-skill.git ~/.codex/skills/job-search-companion
+git clone https://github.com/leoli001031-blip/job-search-companion-skill.git ~/.codex/skills/job-search-companion
 ```
 
-如果你的智能体支持显式指定技能目录：
+如果你的 Codex / Agent 运行器支持显式指定技能目录：
 
 ```bash
 --skills-dir "$HOME/.codex/skills"
 ```
+
+### Kimi CLI / Gemini CLI / 其他 Agent
+
+如果对方没有原生 Skills 目录，也可以把仓库放在任意位置，然后在提示词中明确要求：
+
+```text
+请使用这个求职陪跑 instruction pack：
+/path/to/job-search-companion
+
+先读取 SKILL.md。
+然后根据任务读取 SKILL.md 里的 Reference 路由中相关的 references/*.md。
+如果需要导出 PDF，再查看 scripts/render-resume-pdf.mjs 和 assets/resume-pdf-templates/。
+```
+
+### Claude.ai / API
+
+可以把 `job-search-companion` 文件夹打包成 zip 后上传为自定义 Skill。注意：不同 Claude 使用面之间的 Skills 不会自动同步；Claude Code、Claude.ai 和 API 需要分别安装或上传。
+
+如果运行环境没有本地文件权限、浏览器、网络或 PDF 渲染能力，Skill 仍可用于简历/JD/面试/话术等文本产物；PDF 导出器和本地文件读取会降级为可复制内容或操作步骤。
+
+### 触发方式
 
 触发方式可以很自然：
 
 ```text
 用 job-search-companion 帮我整理求职材料。
 ```
+
+或：
+
+```text
+使用求职陪跑 skill，先帮我拆这个 JD，再告诉我简历要怎么贴。
+```
+
+如果某个 Agent 仍提示平台不匹配，通常是因为它只看到了旧版 README，或者把仓库安装到了另一个平台的目录。这个仓库本身遵循通用 `SKILL.md` 结构；在 Claude Code 里请安装到 `.claude/skills/job-search-companion/`。
 
 ## PDF 导出器
 
