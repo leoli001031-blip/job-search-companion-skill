@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>{{name}} - {{target_role}} - 技能仪表盘简历</title>
   <style>
-    @page { size: A4; margin: 12mm 13mm; }
+    @page { size: A4; margin: 0; }
     :root {
       --accent: #2563eb;
       --accent-dark: #1e3a8a;
@@ -29,7 +29,12 @@
       print-color-adjust: exact;
     }
     h1, h2, h3, p { margin: 0; }
-    .page { width: 184mm; min-height: 273mm; background: var(--paper); }
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      padding: 12mm 13mm;
+      background: var(--paper);
+    }
     .header {
       display: grid;
       grid-template-columns: 1fr auto;

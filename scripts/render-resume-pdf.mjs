@@ -166,11 +166,11 @@ const templateFiles = {
   "top-band-compact": "top-band-compact.html",
   "top-band-compact-photo": "top-band-compact-photo.html",
   "classic-markdown": "classic-markdown.html",
-  "profile-card-grid": "profile-card-grid.html",
   "skill-dashboard": "skill-dashboard.html",
   "compact-two-column-photo": "compact-two-column-photo.html",
   "zc-sidebar-visual": "zc-sidebar-visual.html",
   "zc-sidebar-visual-photo": "zc-sidebar-visual-photo.html",
+  "zc-sidebar-visual-photo-two-page": "zc-sidebar-visual-photo-two-page.html",
 };
 
 const internalPhrases = [
@@ -389,6 +389,8 @@ function themeOverridesFrom(args, data) {
     text: cssColor(args.text || source.text),
     muted: cssColor(args.muted || source.muted),
     line: cssColor(args.line || source.line),
+    sage: cssColor(args.sage || source.sage),
+    clay: cssColor(args.clay || source.clay),
   };
 }
 

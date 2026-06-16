@@ -124,7 +124,7 @@ PDF 输出：
 
 ```bash
 mkdir -p ~/.codex/skills
-git clone https://github.com/leoli001031-blip/job-search-companion-skill.git ~/.codex/skills/job-search-companion
+git clone https://github.com/<your-org>/job-search-companion-skill.git ~/.codex/skills/job-search-companion
 ```
 
 如果你的智能体支持显式指定技能目录：
