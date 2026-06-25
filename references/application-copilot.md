@@ -69,6 +69,7 @@ target_roles:
 salary_floor_monthly_cny:
 excluded_company_types:
 excluded_risk_flags:
+internship_policy: include/exclude/manual_review/only
 max_jobs_per_batch:
 daily_limit:
 final_action_default: manual_stop/single_authorized_send
@@ -80,9 +81,15 @@ portfolio_policy:
 
 - `max_jobs_per_batch` 建议 3-5 个。
 - `final_action_default` 默认 `manual_stop`，即先停在发送前。
+- `internship_policy` 是投递范围选项，不是岗位质量判断：
+  - `include`：保留实习、校招、应届岗，适合应届、实习或探索期用户。
+  - `exclude`：从本批正式求职主线中剔除实习、校招、在读要求明显的岗位。
+  - `manual_review`：保留为观察样本或备用，不进入自动定制和自动投递。
+  - `only`：只收集实习、校招、应届岗。
 - 公司不明、培训贷、收费内推、外包包装、薪资不清、长期重复挂岗、要求敏感材料的岗位自动跳过或暂缓。
 - BOSS/智联/猎聘这类平台先做只读采集和准备模式，再考虑单岗位授权发送。
 - 即使用户说“帮我自动投”，也必须先把岗位范围、材料版本、话术、附件/作品链接和停止条件确认清楚。
+- 不要静默删除实习/校招岗位；被 `internship_policy` 排除的岗位也要进入跳过/观察记录，方便用户回看。
 
 ## MVP 流程
 
