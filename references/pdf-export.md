@@ -25,9 +25,9 @@ HR / 业务负责人 / 微信转发 -> 可使用 cn-single-polished、cn-sidebar
 PDF 场景先用短句说明真实状态：
 
 ```text
-本轮状态：PDF 排版方案，未导出 PDF。
-本轮状态：可复制 HTML/Markdown，未生成文件。
-本轮状态：已生成 PDF，路径已验证。
+PDF 排版方案：未导出 PDF。
+可复制 HTML/Markdown：未生成文件。
+已生成 PDF：路径已验证。
 ```
 
 未实际写入、导出并验证路径时，不给本地文件链接，不说“已生成 PDF”。可以继续给 A4 规格、模板选择、建议文件名、HTML/CSS 方案和导出步骤。

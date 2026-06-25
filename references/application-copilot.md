@@ -57,6 +57,33 @@ Skill 本体负责判断和生成：
 - 每个岗位都有明确投递动作。
 - 批次数量较小，默认 3-5 个，用户明确要求时也要先提示风险。
 
+## 平台预授权规则
+
+国内平台投递前，先把“哪些岗位可以进入自动化处理”讲清楚。预授权不是允许直接乱投，而是给岗位池筛选、排序和小批量定制设定边界。
+
+建议先确认：
+
+```yaml
+cities:
+target_roles:
+salary_floor_monthly_cny:
+excluded_company_types:
+excluded_risk_flags:
+max_jobs_per_batch:
+daily_limit:
+final_action_default: manual_stop/single_authorized_send
+attachment_policy:
+portfolio_policy:
+```
+
+默认规则：
+
+- `max_jobs_per_batch` 建议 3-5 个。
+- `final_action_default` 默认 `manual_stop`，即先停在发送前。
+- 公司不明、培训贷、收费内推、外包包装、薪资不清、长期重复挂岗、要求敏感材料的岗位自动跳过或暂缓。
+- BOSS/智联/猎聘这类平台先做只读采集和准备模式，再考虑单岗位授权发送。
+- 即使用户说“帮我自动投”，也必须先把岗位范围、材料版本、话术、附件/作品链接和停止条件确认清楚。
+
 ## MVP 流程
 
 ```text
